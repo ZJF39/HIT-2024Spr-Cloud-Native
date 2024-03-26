@@ -1,0 +1,19 @@
+server:
+  port: 8018
+spring:
+  application:
+    name: product-client
+ribbon:
+  eureka:
+    enable: true
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    register-with-eureka: true
+    #下面一定要写true
+    fetch-registry: true
+    initial-instance-info-replication-interval-seconds: 10
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://localhost:8888/eureka

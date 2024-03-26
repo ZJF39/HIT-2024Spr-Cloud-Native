@@ -1,0 +1,21 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: product-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tb_product?characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+eureka:
+  instance:
+    prefer-ip-address: false
+
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka

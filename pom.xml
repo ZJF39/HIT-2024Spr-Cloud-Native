@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com.microservice</groupId>
+<artifactId>microservice-demo</artifactId>
+<version>1.0-SNAPSHOT</version>
+
+<!-- 新增包含的子项目 -->
+
+<modules>
+    <module>eureka-service</module>
+    <module>product-service</module>
+    <module>product-client</module>
+<!--    <module>gateway-service</module>-->
+
+</modules>
+<name>microservice-demo</name>
+<packaging>pom</packaging>
+<description>简单的微服务案例</description>
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+    <springboot.version>2.3.9.RELEASE</springboot.version>
+    <springcloud.version>Hoxton.SR10</springcloud.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <mybatis.version>2.0.1</mybatis.version>
+    <hutool.version>4.5.13</hutool.version>
+</properties>
+<!--  管理依赖 声明依赖  -->
+<dependencyManagement>
+    <dependencies>
+        <!--spring Boot 依赖  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${springboot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!--  spring Cloud 依赖  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${springcloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!--  统一依赖管理  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <version>2.2.7.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!-- 加入hystrix的依赖  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.7.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!--  spring cloud config 客户端  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>2.2.7.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <!-- spring boot web 模块  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+            <exclusions>
+                <!-- 排除tomcat依赖 ,使用underom  -->
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+<dependencies>
+    <!-- eureka 客户端  -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    <!--  feignclient远程调用  -->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+    <!-- Lombok  -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <!--  dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency  -->
+</dependencies>
+<build>
+    <finalName>${project.name}</finalName>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <target>${maven.compiler.target}</target>
+                <source>${maven.compiler.source}</source>
+                <encoding>UTF-8</encoding>
+                <skip>true</skip>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>pl.project13.maven</groupId>
+            <artifactId>git-commit-id-plugin</artifactId>
+            <version>2.2.5</version>
+        </plugin>
+    </plugins>
+</build>
+<repositories>
+    <!-- 阿里云主仓库，代理了maven central和jcenter仓库  -->
+    <repository>
+        <id>aliyun</id>
+        <name>aliyun</name>
+        <url>https://maven.aliyun.com/repository/public</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+    <!-- 阿里云代理Spring 官方仓库  -->
+    <repository>
+        <id>spring-milestones</id>
+        <name>Spring Milestones</name>
+        <url>https://maven.aliyun.com/repository/spring</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+</project>
