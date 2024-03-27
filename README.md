@@ -1,4 +1,7 @@
 # 哈工大2024春季学期云原生实践 微服务项目
+## 注意  
+  项目中product_service服务需调用主机mysql才能运行，执行前请确认本地已配置好mysql环境，并已将product_service配置文件中数据库的密码改为本机数据库密码。  
+  项目中报错一般都为版本问题，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。
 ## 当前进度
 - [x] 父项目Pom配置
 - [x] Eureka注册中心
@@ -19,9 +22,6 @@ Maven version: 3.9.6
 JDK version: 17  
 Springboot version: 2.3.9.RELEASE  
 SpringCloud version: Hoxton.SR10  
-## 注意  
-  项目中product_service服务需调用主机mysql才能运行，执行前请确认本地已配置好mysql环境，并已将product_service配置文件中数据库的密码改为本机数据库密码。  
-  项目中报错一般都为版本问题，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。
 ## 2024.3.27更新  
 ### 解决上版本错误  
 #### 1.Eureka启动后会在服务没有完全启动前尝试注册到自身导致日志出现报错信息，但后续服务启动成功后会重新尝试注册所以不影响最终效果。  
