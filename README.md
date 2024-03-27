@@ -34,7 +34,7 @@ SpringCloud version: Hoxton.SR10
   报错问题解决。  
 #### 2.`mysql`数据库没有与product-service连接起来，导致product-client在调用服务时查找不到物品ID。  
   经日志排查发现查找物品的命令没有发送给service，排查后发现是指导手册中提供的查找命令出错，实际命令应为：localhost:8018/findByProductId/1。  
-  product-service日志接收到查找命令后再次出现报错，连接到mysql数据库时出现问题，将product_service下的application.yml中配置数据库的password:root改为自己的密码即可。  
+  product-service日志接收到查找命令后再次出现报错，连接到mysql数据库时出现问题，将product_service下的application.yml中配置数据库的password: root改为自己的密码即可。  
   查找问题解决。  
   ### 更新信息  
   修补漏洞。  
