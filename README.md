@@ -20,7 +20,7 @@ JDK version: 17
 Springboot version: 2.3.9.RELEASE  
 SpringCloud version: Hoxton.SR10  
 ## 注意  
-  项目中product_service服务需调用主机mysql才能运行，执行前请确认本地已配置好mysql环境，并已将配置文件中数据库的密码改为本机数据库密码。  
+  项目中product_service服务需调用主机mysql才能运行，执行前请确认本地已配置好mysql环境，并已将product_service配置文件中数据库的密码改为本机数据库密码。  
   项目中报错一般都为版本问题，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Sprngboot、SpringCloud版本，请自行测试依赖库。
 ## 2024.3.27更新  
   ### 解决上版本错误  
