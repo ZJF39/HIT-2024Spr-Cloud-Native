@@ -13,11 +13,12 @@
     <module>product-service</module>
     <module>product-client</module>
 <!--    <module>gateway-service</module>-->
-
 </modules>
+
 <name>microservice-demo</name>
 <packaging>pom</packaging>
 <description>简单的微服务案例</description>
+
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -29,6 +30,7 @@
     <mybatis.version>2.0.1</mybatis.version>
     <hutool.version>4.5.13</hutool.version>
 </properties>
+
 <!--  管理依赖 声明依赖  -->
 <dependencyManagement>
     <dependencies>
@@ -87,6 +89,7 @@
         </dependency>
     </dependencies>
 </dependencyManagement>
+
 <dependencies>
     <!-- eureka 客户端  -->
     <dependency>
@@ -104,15 +107,15 @@
         <artifactId>lombok</artifactId>
         <scope>provided</scope>
     </dependency>
-    <!--  dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>2.1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-            </dependency  -->
+    <!--</dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.1.0</version>
+    </dependency>
+    </dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>-->
 </dependencies>
 <build>
     <finalName>${project.name}</finalName>

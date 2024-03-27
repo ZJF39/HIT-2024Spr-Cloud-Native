@@ -18,6 +18,8 @@ eureka:
     use-read-only-response-cache: false
     renewal-percent-threshold: 0.49
   client:
+    healthcheck.enabled: false
+    onDemandUpdateStatusChange: false
     register-with-eureka: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

@@ -17,3 +17,6 @@ eureka:
     registry-fetch-interval-seconds: 5
     service-url:
       defaultZone: http://localhost:8888/eureka
+feign:
+  hystrix:
+    enabled: true    #在feign中开启hystrix熔断机制

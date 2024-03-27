@@ -4,9 +4,9 @@ spring:
   application:
     name: product-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/tb_product?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/tb_product?characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: root
+    password: oku200309
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 eureka:
