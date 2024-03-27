@@ -23,7 +23,7 @@ JDK version: 17
 Springboot version: 2.3.9.RELEASE  
 SpringCloud version: Hoxton.SR10  
 ## 2024.3.27更新  
-### 解决上版本错误  
+### 解决错误  
 #### 1.Eureka启动后会在服务没有完全启动前尝试注册到自身导致日志出现报错信息，但后续服务启动成功后会重新尝试注册所以不影响最终效果。  
   尝试添加延时启动后未果，根据[CSDN外链](https://blog.csdn.net/cxyxysam/article/details/135831967?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-135831967-blog-82980717.235^v43^control&spm=1001.2101.3001.4242.1&utm_relevant_index=3 "悬停显示")所写，在Eureka服务的application.yml中添加
   ```Java
