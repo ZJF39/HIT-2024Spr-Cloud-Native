@@ -1,8 +1,8 @@
 # 哈工大2024春季学期云原生实践 微服务项目
 ## 注意  
-  项目中 __product_service__ 服务需调用主机mysql才能运行，执行前请确认__本地已配置好mysql环境__，并已将product_service配置文件中__数据库的密码改为本机数据库密码__。  
-  项目中__报错一般都为版本问题__，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。  
-  项目中__Config配置中心的远程仓库需要单独配置__，笔者的仓库随时可能会进行变动，未更改直接启动可能会产生错误。  
+  项目中 __product_service__ 服务需调用主机mysql才能运行，执行前请确认 __本地已配置好mysql环境__ ，并已将product_service配置文件中 __数据库的密码改为本机数据库密码__ 。  
+  项目中 __报错一般都为版本问题__ ，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。  
+  项目中 __Config配置中心的远程仓库需要单独配置__ ，笔者的仓库随时可能会进行变动，未更改直接启动可能会产生错误。  
   项目中的config-service会调用远程仓库的配置文件，但如果该服务未启动，product-service就会调用本地application.yml而非bootstrap.yml（bootstrap优先级最高）进行配置。在测试项目的负载均衡时会通过Copy configuration的方法复制多个product-service服务并分别赋予不同的端口，但若通过config配置中心进行集中配置的话，会因为争用端口导致只有一个product-service服务可以启动成功（即不能通过vm option赋予不同的端口），如需在后续的操作中测试product-service的负载均衡功能或需要启动多个服务，请关闭config-service，改用本地配置文件进行配置即可。  
 ## 当前进度
 - [x] 父项目Pom配置
