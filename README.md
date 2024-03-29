@@ -26,7 +26,7 @@ Springboot version: 2.3.9.RELEASE
 SpringCloud version: Hoxton.SR10  
 ## 2024.3.29更新  
 ### 更新信息
-实现了``Gateway API网关``和全局过滤器。可通过网关实现将请求路由到其所需的服务上，并且具有负载均衡功能（实现方式与之前不同）。同时在网关上实现了统一鉴权的全局过滤器配置，请求参数中需包含token参数，且过滤器中只放行token为1的请求。
+实现了``Gateway API网关``和全局过滤器。可通过网关实现将请求路由到其所需的服务上，并且具有负载均衡功能（实现方式与之前不同）。同时在网关上实现了统一鉴权的全局过滤器配置，请求参数中需包含token参数，且过滤器中只放行token为1的请求。  
 实现了``Config配置中心``。将product-service服务的配置文件配置在[仓库](https://github.com/2023120260/serviceconfig "悬停显示")中，并在项目中创建Config-service提供配置服务，product-service可通过该服务连接到远程仓库，实现微服务的集中配置管理和运行期间动态调整。
 ***
 ## 2024.3.27更新  
