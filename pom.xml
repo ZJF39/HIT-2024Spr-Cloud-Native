@@ -12,7 +12,8 @@
     <module>eureka-service</module>
     <module>product-service</module>
     <module>product-client</module>
-<!--    <module>gateway-service</module>-->
+    <module>gateway-service</module>
+    <module>config-service</module>
 </modules>
 
 <name>microservice-demo</name>
@@ -91,6 +92,15 @@
 </dependencyManagement>
 
 <dependencies>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-config</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        <version>3.0.1</version>
+    </dependency>
     <!-- eureka 客户端  -->
     <dependency>
         <groupId>org.springframework.cloud</groupId>
