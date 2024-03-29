@@ -1,7 +1,9 @@
 # 哈工大2024春季学期云原生实践 微服务项目
 ## 注意  
   项目中product_service服务需调用主机mysql才能运行，执行前请确认本地已配置好mysql环境，并已将product_service配置文件中数据库的密码改为本机数据库密码。  
-  项目中报错一般都为版本问题，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。
+  项目中报错一般都为版本问题，笔者只能在本项目配置文件版本环境下运行成功，不能保证其他版本同样运行，如使用更新的Springboot、SpringCloud版本，请自行测试依赖库。  
+  项目中Config配置中心的远程仓库需要单独配置，笔者的仓库随时可能会进行变动，未更改就启动可能会产生错误。  
+  项目中的config-service会调用远程仓库的配置文件，但如果该服务未启动，product-service就会调用本地application.yml而非bootstrap.yml进行配置，在测试项目的负载均衡时会通过Copy configuration的方法复制多个product-service服务并分别赋予不同的端口，但若通过config配置中心进行集中配置的话，会因为争用端口导致只有一个product-service服务可以启动成功（即不能通过vm option赋予不同的端口），如需在后续的操作中测试product-service的负载均衡功能或需要启动多个服务的话，请关闭config-service，改用本地配置文件进行配置即可。  
 ## 当前进度
 - [x] 父项目Pom配置
 - [x] Eureka注册中心
@@ -10,8 +12,8 @@
 - [x] 服务使用方注册
 - [x] 负载均衡
 - [x] 熔断机制
-- [ ] Gateway API 网关
-- [ ] Config配置中心
+- [x] Gateway API 网关
+- [x] Config配置中心
 - [ ] 云原生环境搭建……(etc)
 - [ ] 容器及编排技术……(etc)
 - [ ] k8s可视化界面部署
@@ -22,6 +24,11 @@ Maven version: 3.9.6
 JDK version: 17  
 Springboot version: 2.3.9.RELEASE  
 SpringCloud version: Hoxton.SR10  
+## 2024.3.29更新  
+### 更新信息
+实现了``Gateway API网关``和全局过滤器。可通过网关实现将请求路由到其所需的服务上，并且具有负载均衡功能（实现方式与之前不同）。同时在网关上实现了统一鉴权的全局过滤器配置，请求参数中需包含token参数，且过滤器中只放行token为1的请求。
+实现了``Config配置中心``。将product-service服务的配置文件配置在[仓库](https://github.com/2023120260/serviceconfig "悬停显示")中，并在项目中创建Config-service提供配置服务，product-service可通过该服务连接到远程仓库，实现微服务的集中配置管理和运行期间动态调整。
+***
 ## 2024.3.27更新  
 ### 解决错误  
 #### 1.Eureka启动后会在服务没有完全启动前尝试注册到自身导致日志出现报错信息，但后续服务启动成功后会重新尝试注册所以不影响最终效果。  
@@ -38,8 +45,8 @@ SpringCloud version: Hoxton.SR10
   查找问题解决。  
   ### 更新信息  
   修补漏洞。  
-  实现了负载均衡（product-service和product-service1轮询）  
-  实现了Ribbon熔断机制（如需测试熔断机制，把product_service下的ProductController代码中的Thread.sleep(2000)注释解除即可）  
+  实现了``负载均衡``（product-service和product-service1轮询）  
+  实现了``Ribbon熔断机制``（如需测试熔断机制，把product_service下的ProductController代码中的Thread.sleep(2000)注释解除即可）  
 ***
 ## 2024.3.26更新  
 ### 更新信息 
