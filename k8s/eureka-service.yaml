@@ -32,6 +32,6 @@ items:
           containers: 
             - name: eureka 
               imagePullPolicy: IfNotPresent 
-              image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/eureka-service:v2.0 
+              image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/eureka-service:latest
               ports: 
                 - containerPort: 8888 

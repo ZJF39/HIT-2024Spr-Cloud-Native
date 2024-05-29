@@ -19,7 +19,7 @@ spec:
       - name: registry-pull-secret
       containers:
       - name: product-service
-        image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/product-service:v2.0
+        image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/product-service:latest
         imagePullPolicy: IfNotPresent
         ports:
           - protocol: TCP

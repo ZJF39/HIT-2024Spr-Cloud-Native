@@ -33,7 +33,7 @@ items:
         containers:
         - name: gateway-service
           imagePullPolicy: IfNotPresent
-          image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/gateway-service:v2.0
+          image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/gateway-service:latest
           ports:
           - containerPort: 9999
 
