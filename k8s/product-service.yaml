@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  namespace: stockmgr
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      project: stockmgr
+      app: product-service
+  template:
+    metadata:
+      labels:
+        project: stockmgr
+        app: product-service
+    spec:
+      imagePullSecrets:
+      - name: registry-pull-secret
+      containers:
+      - name: product-service
+        image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/product-service:v2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+          - protocol: TCP
+            containerPort: 8010
+        env:
+          - name: JAVA_OPTS
+            value: "-Xmx1g"
+        resources:
+          requests:
+            cpu: 0.5
+            memory: 256Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        readinessProbe:
+          tcpSocket:
+            port: 8010
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8010
+          initialDelaySeconds: 60
+          periodSeconds: 10
