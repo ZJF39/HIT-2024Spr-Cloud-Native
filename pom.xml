@@ -13,7 +13,7 @@
     <module>product-service</module>
     <module>product-client</module>
     <module>gateway-service</module>
-    <module>config-service</module>
+
 </modules>
 
 <name>microservice-demo</name>
