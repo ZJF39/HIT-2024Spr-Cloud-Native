@@ -13,7 +13,6 @@
     <module>product-service</module>
     <module>product-client</module>
     <module>gateway-service</module>
-    <module>config-service</module>
     <module>dept-service</module>
     <module>dept-client</module>
 </modules>
