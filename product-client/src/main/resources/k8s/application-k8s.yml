@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    #下面一定要写true
+    fetch-registry: true
+
+    initial-instance-info-replication-interval-seconds: 10
+    registry-fetch-interval-seconds: 5
+    instance:
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}   #设置eureka控制台中显示的注册信息
+      lease-renewal-interval-in-seconds: 5         #续约间隔时间
+      lease-expiration-duration-in-seconds: 15     #续约到期时
+    service-url:
+      defaultZone:  http://eureka-service.stockmgr.svc.cluster.local:8888/eureka

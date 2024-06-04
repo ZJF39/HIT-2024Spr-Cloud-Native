@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product-service
+  name: dept-service
   namespace: stockmgr
 spec:
   replicas: 2
@@ -33,7 +33,7 @@ spec:
               memory: 256Mi
             limits:
               cpu: 1
-              memory: 1Gi
+              memory: 512Mi
           readinessProbe:
             tcpSocket:
               port: 8020

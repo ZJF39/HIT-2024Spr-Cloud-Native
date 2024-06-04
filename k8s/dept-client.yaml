@@ -18,12 +18,12 @@ spec:
       imagePullSecrets:
         - name: registry-pull-secret
       containers:
-        - name: product-client
+        - name: dept-client
           image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/dept-client:latest
           imagePullPolicy: IfNotPresent
           ports:
             - protocol: TCP
-              containerPort: 8028
+              containerPort: 8222
           env:
             - name: JAVA_OPTS
               value: "-Xmx1g"
@@ -33,14 +33,14 @@ spec:
               memory: 256Mi
             limits:
               cpu: 1
-              memory: 1Gi
+              memory: 512Mi
           readinessProbe:
             tcpSocket:
-              port: 8028
+              port: 8222
             initialDelaySeconds: 60
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: 8028
+              port: 8222
             initialDelaySeconds: 60
             periodSeconds: 10

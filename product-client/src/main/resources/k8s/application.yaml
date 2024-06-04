@@ -1,0 +1,14 @@
+server:
+  port: 8111
+spring:
+  profiles:
+    active: k8s
+  application:
+    name: product-client
+ribbon:
+  eureka:
+    enable: true
+
+feign:
+  hystrix:
+    enabled: true    #在feign中开启hystrix熔断机制

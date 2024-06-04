@@ -1,0 +1,14 @@
+server:
+  port: 8222
+spring:
+  profiles:
+    active: k8s
+  application:
+    name: dept-client
+ribbon:
+  eureka:
+    enable: true
+
+feign:
+  hystrix:
+    enabled: true    #在feign中开启hystrix熔断机制

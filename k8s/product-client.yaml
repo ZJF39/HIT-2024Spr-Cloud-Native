@@ -23,7 +23,7 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - protocol: TCP
-            containerPort: 8018
+            containerPort: 8111
         env:
           - name: JAVA_OPTS
             value: "-Xmx1g"
@@ -33,14 +33,14 @@ spec:
             memory: 256Mi
           limits:
             cpu: 1
-            memory: 1Gi
+            memory: 512Mi
         readinessProbe:
           tcpSocket:
-            port: 8018
+            port: 8111
           initialDelaySeconds: 60
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: 8018
+            port: 8111
           initialDelaySeconds: 60
           periodSeconds: 10

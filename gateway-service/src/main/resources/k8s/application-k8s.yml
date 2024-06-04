@@ -1,8 +1,4 @@
-server:
-  port: 9999
 spring:
-  application:
-    name: @artifactId@
   cloud:
     gateway:
       discovery:
@@ -27,9 +23,14 @@ spring:
 
 eureka:
   instance:
-    prefer-ip-address: false
+    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://127.0.0.1:8888/eureka
+      defaultZone: http://eureka-service.stockmgr.svc.cluster.local:8888/eureka
+    instance:
+      prefer-ip-address: true   #使用ip地址向eureka server进行注册
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}   #设置eureka控制台中显示的注册信息
+      lease-renewal-interval-in-seconds: 5         #续约间隔时间
+      lease-expiration-duration-in-seconds: 15     #续约到期时间
