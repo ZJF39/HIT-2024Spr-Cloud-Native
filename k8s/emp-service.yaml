@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dept-service
+  name: emp-service
   namespace: stockmgr
 spec:
   replicas: 1
   selector:
     matchLabels:
       project: stockmgr
-      app: dept-service
+      app: emp-service
   template:
     metadata:
       labels:
         project: stockmgr
-        app: dept-service
+        app: emp-service
     spec:
       imagePullSecrets:
         - name: registry-pull-secret
       containers:
-        - name: dept-service
-          image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/dept-service:latest
+        - name: emp-service
+          image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/emp-service:latest
           imagePullPolicy: IfNotPresent
           ports:
             - protocol: TCP
-              containerPort: 8020
+              containerPort: 8030
           env:
             - name: JAVA_OPTS
               value: "-Xmx1g"
@@ -36,11 +36,11 @@ spec:
               memory: 512Mi
           readinessProbe:
             tcpSocket:
-              port: 8020
+              port: 8030
             initialDelaySeconds: 60
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: 8020
+              port: 8030
             initialDelaySeconds: 60
             periodSeconds: 10

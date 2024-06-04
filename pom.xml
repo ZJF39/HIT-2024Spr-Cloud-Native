@@ -15,6 +15,9 @@
     <module>gateway-service</module>
     <module>dept-service</module>
     <module>dept-client</module>
+    <module>emp-service</module>
+    <module>emp-client</module>
+    <module>login</module>
 </modules>
 
 <name>microservice-demo</name>

@@ -7,10 +7,18 @@
     <file url="file://$PROJECT_DIR$/dept-client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dept-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dept-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emp-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emp-client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emp-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emp-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/login-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/login-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/login/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/login/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product-client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product-service/src/main/java" charset="UTF-8" />

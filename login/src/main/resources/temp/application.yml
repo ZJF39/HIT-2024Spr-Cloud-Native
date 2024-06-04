@@ -1,0 +1,7 @@
+server:
+  port: 8099
+spring:
+  profiles:
+    active: k8s
+  application:
+    name: login

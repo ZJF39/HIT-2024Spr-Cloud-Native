@@ -24,6 +24,12 @@ spring:
             - StripPrefix=1
           predicates:
             - Path=/dept/**
+        - id: emp-client
+          uri: lb://emp-client
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/emp/**
 
 eureka:
   instance:

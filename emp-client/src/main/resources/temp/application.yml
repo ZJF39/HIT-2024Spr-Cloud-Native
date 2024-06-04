@@ -1,0 +1,14 @@
+server:
+  port: 8333
+spring:
+  profiles:
+    active: k8s
+  application:
+    name: emp-client
+ribbon:
+  eureka:
+    enable: true
+
+feign:
+  hystrix:
+    enabled: true    #在feign中开启hystrix熔断机制
