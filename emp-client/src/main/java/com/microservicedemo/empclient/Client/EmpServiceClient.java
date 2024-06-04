@@ -29,5 +29,4 @@ public interface EmpServiceClient {
     List<Emp> queryAllEmp();
     @GetMapping("queryAllt")
     List<Emp> queryAl();
-
 }

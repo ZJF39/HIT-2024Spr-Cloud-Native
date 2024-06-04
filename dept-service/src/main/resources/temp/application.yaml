@@ -1,9 +1,9 @@
 server:
-  port: 8099
+  port: 8020
 spring:
-  #数据库连接信息
+
   application:
-    name: login
+    name: dept-service
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/tb_product?characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
     username: root

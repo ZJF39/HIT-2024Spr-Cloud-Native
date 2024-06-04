@@ -10,11 +10,6 @@
         <option value="$PROJECT_DIR$/gateway-service/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/login-service/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="PWA">
     <option name="wasEnabledAtLeastOnce" value="true" />

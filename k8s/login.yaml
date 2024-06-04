@@ -1,46 +1,39 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: login
-  namespace: stockmgr
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      project: stockmgr
-      app: login
-  template:
+kind: List
+apiVersion: v1
+items:
+  - apiVersion: v1
+    kind: Service
     metadata:
-      labels:
-        project: stockmgr
-        app: login
+      name: login
+      namespace: stockmgr
     spec:
-      imagePullSecrets:
-        - name: registry-pull-secret
-      containers:
-        - name: login
-          image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/login:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - protocol: TCP
-              containerPort: 8099
-          env:
-            - name: JAVA_OPTS
-              value: "-Xmx1g"
-          resources:
-            requests:
-              cpu: 0.5
-              memory: 256Mi
-            limits:
-              cpu: 1
-              memory: 512Mi
-          readinessProbe:
-            tcpSocket:
-              port: 8099
-            initialDelaySeconds: 60
-            periodSeconds: 10
-          livenessProbe:
-            tcpSocket:
-              port: 8099
-            initialDelaySeconds: 60
-            periodSeconds: 10
+      type: NodePort
+      selector:
+        app: login
+      ports:
+        - name: http
+          port: 8099
+          targetPort: 8099
+          nodePort: 30100
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: login
+      namespace: stockmgr
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: login
+      template:
+        metadata:
+          labels:
+            app: login
+        spec:
+          containers:
+            - name: login
+              imagePullPolicy: IfNotPresent
+              image: registry.cn-hangzhou.aliyuncs.com/my-stock-dio/login:latest
+              ports:
+                - containerPort: 8099
+

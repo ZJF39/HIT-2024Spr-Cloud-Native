@@ -41,6 +41,4 @@ public class EmpController {
         return empList;
     }
 
-
-
 }

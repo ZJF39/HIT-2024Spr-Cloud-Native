@@ -14,5 +14,4 @@ public interface EmpMapper {
     @Select("select id, username, password, name, gender, job, entrydate,"+" dept_id deptId, create_time createTime, update_time updateTime  from emp e")
     List<Emp> queryAllEmp();
 
-
 }

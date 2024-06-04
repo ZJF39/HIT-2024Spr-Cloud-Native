@@ -4,7 +4,6 @@ import com.microservicedemo.empclient.model.Emp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.List;
-import com.microservicedemo.empservice.mapper.EmpMapper;
 
 @Slf4j
 @Component
@@ -24,7 +23,5 @@ public class EmpServiceFallback implements EmpServiceClient{
     public List<Emp> queryAl() {
         return null;
     }
-
-
 
 }
