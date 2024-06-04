@@ -1,7 +1,0 @@
-server:
-  port: 8010
-spring:
-  profiles:
-    active: k8s
-  application:
-    name: product-service

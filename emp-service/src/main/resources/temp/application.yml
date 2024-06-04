@@ -1,7 +1,0 @@
-server:
-  port: 8030
-spring:
-  profiles:
-    active: k8s
-  application:
-    name: emp-service
